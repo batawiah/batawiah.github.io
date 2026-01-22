@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Benjamin Atawiah, PhD Candidate in Mathematics at The University of Alabama. Research in Numerical Analysis, Discontinuous Galerkin Finite Element Methods (DG-FEM), and Time Integration.">
+    <meta name="keywords" content="Benjamin Atawiah, mathematics researcher, numerical analysis, Discontinuous Galerkin, DG-FEM, Runge Kutta, The University of Alabama, PhD candidate, time integration, Fourier analysis">
+    <meta name="author" content="Benjamin Atawiah">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Benjamin Atawiah - Research Portfolio">
+    <meta property="og:description" content="PhD Candidate in Mathematics at The University of Alabama specializing in Numerical Analysis and Discontinuous Galerkin Methods.">
+    <meta property="og:image" content="https://batawiah.github.io/batawiah/images/My_photo.jpg">
+    <meta property="og:url" content="https://batawiah.github.io/batawiah">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Benjamin Atawiah - Research Portfolio">
+    <meta name="twitter:description" content="Mathematics researcher specializing in Numerical Analysis and DG-FEM at The University of Alabama.">
+    <meta name="twitter:image" content="https://batawiah.github.io/batawiah/images/My_photo.jpg">
+    
+    <title>Benjamin Atawiah | PhD Candidate in Mathematics</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Benjamin Atawiah",
+        "url": "https://batawiah.github.io/batawiah",
+        "image": "https://batawiah.github.io/batawiah/images/My_photo.jpg",
+        "jobTitle": "PhD Candidate in Mathematics",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "The University of Alabama",
+            "url": "https://math.ua.edu"
+        },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "The University of Alabama" },
+            { "@type": "CollegeOrUniversity", "name": "African Institute for Mathematical Sciences" },
+            { "@type": "CollegeOrUniversity", "name": "University of Ghana" }
+        ],
+        "knowsAbout": ["Numerical Analysis", "Discontinuous Galerkin Finite Element Methods", "Time Integration Methods", "Runge Kutta Methods", "Fourier Analysis"],
+        "email": "batawiah@crimson.ua.edu"
+    }
+    </script>
+    
+    <style>
+        /* === Variables & Themes === */
+        :root {
+            /* Light Mode Defaults */
+            --primary: #1a252f;
+            --secondary: #2980b9;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --bg-header: rgba(255, 255, 255, 0.98);
+            --bg-hero-gradient: linear-gradient(135deg, #f8f9fa 0%, #eef2f3 100%);
+            --bg-footer: #1a252f;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --text-footer: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.1);
+            --pill-bg: #f1f2f6;
+            --date-badge-bg: #eaf4fb;
+            --date-badge-text: #2980b9;
+            
+            --border-radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Dark Mode Overrides */
+        [data-theme="dark"] {
+            --primary: #ecf0f1;
+            --secondary: #5dade2; /* Brighter blue for contrast */
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-header: rgba(30, 30, 30, 0.98);
+            --bg-hero-gradient: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            --bg-footer: #0a0a0a;
+            --text-main: #e0e0e0;
+            --text-light: #a0a0a0;
+            --text-footer: #e0e0e0;
+            --border-color: #333;
+            --shadow: 0 4px 20px rgba(0,0,0,0.5);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.7);
+            --pill-bg: #2c2c2c;
+            --date-badge-bg: #1a2a3a;
+            --date-badge-text: #5dade2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.7;
+            padding-top: 80px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a { text-decoration: none; color: var(--secondary); transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        ul { list-style: none; }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === Components === */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white; /* Always white text on button */
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--bg-card); /* Text becomes card bg color */
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* === Header === */
+        header {
+            background: var(--bg-header);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo { font-size: 1.5rem; letter-spacing: -0.5px; }
+        .logo span { color: var(--secondary); }
+
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        .theme-toggle:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        /* === Hero Section === */
+        #hero {
+            padding: 100px 0 80px;
+            background: var(--bg-hero-gradient);
+            transition: background 0.3s;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
+        .hero-text .title {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hero-text p { color: var(--text-main); font-size: 1.05rem; margin-bottom: 25px; max-width: 600px; }
+        
+        .contact-mini { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; font-size: 0.95rem; }
+        .contact-mini span { display: flex; align-items: center; gap: 8px; color: var(--text-light); }
+        .contact-mini i { color: var(--secondary); }
+
+        .hero-btns { display: flex; gap: 15px; }
+
+        .profile-wrapper {
+            position: relative;
+            flex: 0 0 320px;
+        }
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--secondary);
+            border: 5px solid var(--bg-card);
+            transition: border 0.3s;
+        }
+
+        /* === Timeline (Education/Experience) === */
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 45px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 4px solid var(--secondary);
+            z-index: 1;
+            transition: background 0.3s;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            bottom: -50px;
+            width: 2px;
+            background: var(--border-color);
+            transition: background 0.3s;
+        }
+        .timeline-item:last-child::after { display: none; }
+        
+        .date-badge {
+            display: inline-block;
+            background: var(--date-badge-bg);
+            color: var(--date-badge-text);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .timeline-item h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .timeline-item h4 { font-size: 1.1rem; color: var(--text-light); font-weight: 500; margin-bottom: 10px; }
+        .timeline-item ul { padding-left: 18px; list-style: disc; margin-top: 10px; }
+        .timeline-item li { margin-bottom: 5px; color: var(--text-main); }
+
+        /* === Skills & Pills === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .skill-group h3 { font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+        .pill-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .pill {
+            background: var(--pill-bg);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: background 0.3s, border 0.3s;
+        }
+
+        /* === Publications === */
+        .publication-item {
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .publication-item:last-child { border: none; margin: 0; padding: 0; }
+        .pub-title { font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 5px; }
+        .pub-status {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #fff3cd;
+            color: #856404;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* === Footer === */
+        footer {
+            background-color: var(--bg-footer);
+            color: var(--text-footer);
+            padding: 60px 0 30px;
+            text-align: center;
+            margin-top: 80px;
+            transition: background 0.3s;
+        }
+        footer p { opacity: 0.8; margin-bottom: 20px; }
+        .footer-social a {
+            color: var(--text-footer);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .footer-social a:hover { opacity: 1; }
+        .copyright { margin-top: 30px; font-size: 0.85rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+        /* === Responsive === */
+        @media (max-width: 900px) {
+            .hero-content { flex-direction: column-reverse; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p { margin: 0 auto 25px; }
+            .contact-mini { justify-content: center; }
+            .hero-btns { justify-content: center; }
+            .profile-img { width: 250px; height: 250px; }
+            .profile-wrapper { flex: 0 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                text-align: center;
+                gap: 20px;
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .theme-toggle { margin-left: 15px; }
+        }
+    </style>
+</head>
+<body itemscope itemtype="https://schema.org/Person">
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Benjamin <span>Atawiah</span></div>
+                
+                <div class="nav-actions">
+                    <ul class="nav-links">
+                        <li><a href="#about">Profile</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#teaching">Teaching</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <button class="mobile-menu-btn" id="menuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 itemprop="name">Benjamin Atawiah</h1>
+                    <span class="title" itemprop="jobTitle">PhD Candidate in Mathematics | The University of Alabama</span>
+                    <p>Mathematics researcher with expertise in <strong>Numerical Analysis, Discontinuous Galerkin Finite Element Methods (DG-FEM), and Time Integration Methods</strong>. Dedicated to developing efficient algorithms for high-dimensional data analysis.</p>
+                    
+                    <div class="contact-mini">
+                        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <i class="fas fa-map-marker-alt"></i> <span itemprop="addressLocality">Tuscaloosa</span>, AL
+                        </span>
+                        <span>
+                            <i class="fas fa-envelope"></i> <a href="mailto:batawiah@crimson.ua.edu" itemprop="email" style="color:var(--text-light)">batawiah@crimson.ua.edu</a>
+                        </span>
+                    </div>
+
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn">Get In Touch</a>
+                        <a href="files/Benjamin Atawiah CV.pdf" class="btn btn-outline" download>
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="profile-wrapper">
+                    <img src="images/My_photo.jpg" alt="Benjamin Atawiah" class="profile-img" itemprop="image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="card">
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3>Numerical Analysis</h3>
+                        <div class="pill-container">
+                            <span class="pill">DG-FEM</span>
+                            <span class="pill">Fourier Analysis</span>
+                            <span class="pill">Accuracy & Stability</span>
+                            <span class="pill">Energy Estimate</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Time Integration</h3>
+                        <div class="pill-container">
+                            <span class="pill">SSP Runge Kutta</span>
+                            <span class="pill">Local Time Marching</span>
+                            <span class="pill">TVD Runge Kutta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">Research Experience</h2>
+            
+            <div class="timeline-item">
+                <span class="date-badge">Aug 2022 - Present</span>
+                <h3>Graduate Research Assistant</h3>
+                <h4><a href="https://ua.edu" target="_blank" rel="noopener">The University of Alabama</a></h4>
+                <ul>
+                    <li><strong>Stability via Energy Method:</strong> Summer 2025</li>
+                    <li><strong>Local Time Marching on DG method:</strong> Spring 2025</li>
+                    <li><strong>Optimal CFL number for DG Methods with damped Polynomial Coefficients:</strong> Fall 2024</li>
+                    <li><strong>Error Analysis of Discontinuous Galerkin Methods with modal values:</strong> Summer 2024</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date-badge">Jun 2019</span>
+                <h3>Masters Thesis</h3>
+                <h4><a href="https://aims.edu.gh" target="_blank" rel="noopener">African Institute for Mathematical Sciences-Ghana</a></h4>
+                <ul>
+                    <li><strong>Topic:</strong> Dynamical Analysis of Strange Attractors in a Climate Related Model</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="timeline-item">
+                <span class="date-badge">Expected Aug 2026</span>
+                <h3>Ph.D. in Mathematics</h3>
+                <h4><a href="https://ua.edu" target="_blank" rel="noopener">The University of Alabama</a>, Tuscaloosa, AL</h4>
+                <p><strong>Advisor:</strong> <a href="https://sites.ua.edu/zsun/" target="_blank" rel="noopener">Dr. Zheng Sun</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date-badge">Apr 2025</span>
+                <h3>M.A. in Mathematics</h3>
+                <h4><a href="https://ua.edu" target="_blank" rel="noopener">The University of Alabama</a>, Tuscaloosa, AL</h4>
+                <p><strong>Advisor:</strong> <a href="https://sites.ua.edu/zsun/" target="_blank" rel="noopener">Dr. Zheng Sun</a></p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date-badge">Jun 2020</span>
+                <h3>M.Sc. in Mathematical Sciences</h3>
+                <h4><a href="https://aims.edu.gh" target="_blank" rel="noopener">African Institute for Mathematical Sciences, Ghana</a></h4>
+                <p><strong>Advisor:</strong> Dr. Mohamed Mbehou</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date-badge">Jun 2018</span>
+                <h3>Bachelor of Arts in Economics and Mathematics</h3>
+                <h4><a href="https://ug.edu.gh" target="_blank" rel="noopener">University of Ghana</a></h4>
+                <p><strong>Advisor:</strong> Mr. Antwi Asare</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="teaching">
+         <div class="container">
+            <h2 class="section-title">Teaching Experience</h2>
+
+            <div class="timeline-item">
+                 <span class="date-badge">Aug 2022 - Present</span>
+                 <h3>Instructor of Record</h3>
+                 <h4><a href="https://ua.edu" target="_blank" rel="noopener">The University of Alabama</a></h4>
+                 <ul>
+                     <li><strong>Math 238, Applied Differential Equations I:</strong> Spring 2024, Spring 2025, Fall 2025</li>
+                     <li><strong>Math 126, Calculus 2:</strong> Fall 2024</li>
+                     <li><strong>Math 227, Calculus 3:</strong> Fall 2023</li>
+                     <li><strong>Math 125, Calculus 1:</strong> Spring 2023</li>
+                     <li><strong>Math 115, Algebra & Trig.:</strong> Fall 2022</li>
+                 </ul>
+            </div>
+             <div class="timeline-item">
+                 <span class="date-badge">Jan 2022 - Present</span>
+                 <h3>Tutor</h3>
+                 <h4><a href="https://ua.edu" target="_blank" rel="noopener">The University of Alabama</a></h4>
+                 <ul>
+                     <li><strong>Math 125, 126, 227:</strong> Summer 2022, 2023, 2024</li>
+                 </ul>
+             </div>
+             <div class="timeline-item">
+                 <span class="date-badge">Aug 2018 - Jul 2019</span>
+                 <h3>Teaching Assistant</h3>
+                 <h4><a href="https://ug.edu.gh" target="_blank" rel="noopener">University of Ghana</a></h4>
+                 <ul>
+                     <li><strong>Taught Math 123, Vectors and Geometry:</strong> Fall 2018</li>
+                     <li><strong>Tutor for Math 122, Calculus 1:</strong> Spring 2018</li>
+                 </ul>
+             </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Presentations</h2>
+            
+            <div class="card">
+                <h3 style="margin-bottom: 20px;">Research Output</h3>
+                
+                <div class="publication-item">
+                    <div class="pub-title">On the Effects of Flux Filtering in Runge-Kutta Discontinuous Galerkin Methods: Fourier Analysis for the Second-Order Case</div>
+                    <div class="pub-status">Manuscript in preparation</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Stability of DG methods via Energy method</div>
+                     <div class="pub-status">Current work</div>
+                </div>
+            </div>
+            
+             <div class="card">
+                <h3 style="margin-bottom: 20px;">Conferences</h3>
+                <ul style="padding-left: 20px; list-style: disc; line-height: 1.8;">
+                    <li><strong>Third Joint Alabama-Florida Conference on Differential Equations, Dynamical Systems, and Applications:</strong> Poster presentation, May 20-22, 2025</li>
+                    <li><strong><a href="https://webhome.auburn.edu/~tzh0059/2025ACMworkshop.html" target="_blank" rel="noopener">2025 Southeast Applied and Computational Mathematics Student Workshop</a>:</strong> Oral presentation, April 5-6, 2025</li>
+                    <li><strong><a href="https://math.utk.edu/siam-seas/" target="_blank" rel="noopener">SIAM-SEAS 2025</a>, University of Tennessee, Knoxville:</strong> Oral presentation, March 21-23, 2025</li>
+                    <li><strong>Winter School: Reduced-Order Modeling for Complex Engineering Problems Implementation:</strong> Hosted by IMSI, University of Chicago, January 29-31, 2025</li>
+                    <li><strong>From Analysis to Practical Mathematical Modeling of Biological Interfacial Phenomena:</strong> Hosted by IMSI, University of Chicago (attended online), December 9-13, 2024</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+     <section id="honors">
+        <div class="container">
+             <h2 class="section-title">Honors & Awards</h2>
+              <div class="card">
+                  <ul style="padding-left: 20px; list-style: disc; line-height: 1.8;">
+                      <li>Summer Research Fellowship, Department of Mathematics, The University of Alabama, Summer 2025</li>
+                      <li>Graduate Student Travel Funding, JAF DEDS Conference, University of Alabama at Birmingham, May 2025</li>
+                      <li>Travel Award, 2025 Southeast Applied and Computational Mathematics Student Workshop, April 2025</li>
+                      <li>Travel Award, 2025 SIAM SEAS Conference at the University of Tennessee, Knoxville (UTK), March 2025</li>
+                      <li>Graduate Student Travel Award, Graduate School, The University of Alabama, 2025</li>
+                      <li>Graduate Student Travel Award, College of Arts and Sciences, The University of Alabama, 2025</li>
+                      <li>Full Scholarship, IMSI Winter School on Reduced Order Polynomial Modeling</li>
+                      <li>Edith & Richard Ainsworth Endowed Scholarship, The University of Alabama, summer 2022 & 2023</li>
+                      <li>Funding to attend Probability, Analysis, and Applications (PAA), AIMS Ghana, 2020</li>
+                      <li>AIMS Ghana Fellowship, $25,000, 2019-2020</li>
+                  </ul>
+              </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="card">
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3>Languages & Software</h3>
+                        <div class="pill-container">
+                            <span class="pill">Python</span>
+                            <span class="pill">Matlab</span>
+                            <span class="pill">Mathematica</span>
+                            <span class="pill">Firedrake</span>
+                        </div>
+                    </div>
+                     <div class="skill-group">
+                        <h3>Memberships</h3>
+                         <div class="pill-container">
+                             <span class="pill">American Mathematical Society (AMS)</span>
+                             <span class="pill">Society of Industrial and Applied Mathematics (SIAM)</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <section id="community">
+         <div class="container">
+            <h2 class="section-title">Community Involvement</h2>
+            <div class="timeline-item">
+                 <span class="date-badge">2025</span>
+                 <h3>Judge, <a href="https://qubeshub.org/community/groups/simiode/" target="_blank" rel="noopener">SIMODE (SCUDEM X 2025)</a></h3>
+                 <p>Reviewed students submissions and provided feedback on modeling with differential equations.</p>
+            </div>
+             <div class="timeline-item">
+                 <span class="date-badge">2025</span>
+                 <h3>Triage Judge, <a href="https://m3challenge.siam.org" target="_blank" rel="noopener">SIAM, MathWorks Math Modeling (M3)</a></h3>
+                 <p>Judged SIAM M3 Challenge, evaluating 20+ teams of students from the U.S., England, and Wales.</p>
+            </div>
+             <div class="timeline-item">
+                 <span class="date-badge">2024</span>
+                 <h3>Research Judge, <a href="https://research.ua.edu/our/urca/" target="_blank" rel="noopener">Undergraduate Research and Creative Activity Conference</a></h3>
+                 <p>Served as a judge for undergraduate research presentations.</p>
+            </div>
+             <div class="timeline-item">
+                 <span class="date-badge">2022 - 2024</span>
+                 <h3>Volunteer Grader, <a href="https://www.mathcounts.org" target="_blank" rel="noopener">MATHCOUNTS Competition</a></h3>
+                 <p>Evaluated and scored student submissions during the middle school mathematics competition.</p>
+            </div>
+             <div class="timeline-item">
+                  <span class="date-badge">May 2023</span>
+                 <h3>Event Support, 1st SEC Geometry-Topology Workshop</h3>
+                 <p>Served as an event support staff; assisted participants with registration and related activities.</p>
+            </div>
+             <div class="timeline-item">
+                 <span class="date-badge">Aug 2019 - Jul 2020</span>
+                 <h3>Mathematics Tutor, Korleman Educational Outreach</h3>
+                 <p>Tutored junior high school students in mathematics on weekends.</p>
+            </div>
+         </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="card" style="text-align: center; border-left: none; border-top: 5px solid var(--secondary);">
+                <h2 class="section-title" style="margin-bottom: 20px;">Get In Touch</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px;">I'm currently exploring postdoctoral and industry research opportunities. Feel free to reach out for collaborations or discussions about research.</p>
+                
+                <a href="mailto:batawiah@crimson.ua.edu" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
+                    <i class="fas fa-paper-plane"></i> Send Email
+                </a>
+                
+                <div style="margin-top: 40px; display: flex; justify-content: center; gap: 30px; color: var(--text-main);">
+                    <span><i class="fas fa-university" style="color: var(--secondary);"></i> <strong>The University of Alabama</strong></span>
+                    <span><i class="fas fa-envelope" style="color: var(--secondary);"></i> batawiah@crimson.ua.edu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 20px;">Benjamin <span>Atawiah</span></div>
+            <p>PhD Candidate | Mathematics Researcher | Numerical Analysis</p>
+            
+            <div class="footer-social">
+                <a href="mailto:batawiah@crimson.ua.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            
+            <div class="copyright">
+                &copy; 2026 Benjamin Atawiah. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

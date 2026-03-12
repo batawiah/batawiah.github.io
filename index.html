@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -9,82 +9,239 @@
 
 <meta name="description" content="Benjamin Atawiah, PhD Candidate in Mathematics at The University of Alabama specializing in Numerical Analysis and Discontinuous Galerkin Methods.">
 
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<!-- Open Graph for link previews -->
+<meta property="og:title" content="Benjamin Atawiah | Mathematics">
+<meta property="og:description" content="PhD Candidate in Mathematics at The University of Alabama specializing in Numerical Analysis and Discontinuous Galerkin Methods.">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
-body{
-font-family:"Source Sans 3",sans-serif;
-max-width:900px;
-margin:auto;
-padding:40px;
-line-height:1.6;
-color:#222;
+:root {
+  --navy: #1a4b8c;
+  --navy-light: #e8f0fb;
+  --text: #222;
+  --muted: #555;
+  --border: #dde3ee;
+  --bg: #ffffff;
+  --section-gap: 52px;
 }
 
-h1,h2,h3{
-font-family:"Source Serif 4",serif;
-margin-top:40px;
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  max-width: 860px;
+  margin: auto;
+  padding: 40px 32px 60px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
 }
 
-a{
-color:#1a4b8c;
-text-decoration:none;
+/* ── Typography ─────────────────────────────── */
+h1 { font-family: "Source Serif 4", serif; font-size: 2rem; margin: 0 0 4px; }
+h2 { font-family: "Source Serif 4", serif; font-size: 1.35rem; margin: 0 0 14px;
+     padding-bottom: 6px; border-bottom: 2px solid var(--navy); color: var(--navy); }
+h3 { font-family: "Source Serif 4", serif; font-size: 1.05rem; margin: 22px 0 6px; color: #333; }
+
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Navigation ─────────────────────────────── */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  align-items: center;
+  margin: 22px 0 36px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+nav a {
+  margin-right: 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+nav a:hover { color: var(--navy); text-decoration: none; }
+nav a.active, nav a:focus { color: var(--navy); }
+
+.cv-button {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1.5px solid var(--navy);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--navy) !important;
+  margin-left: auto;
+  transition: background 0.15s, color 0.15s;
+}
+.cv-button:hover { background: var(--navy); color: white !important; text-decoration: none; }
+
+/* ── Profile header ─────────────────────────── */
+.profile {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.profile img {
+  width: 155px;
+  min-width: 155px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+.profile-text p { margin: 0 0 10px; }
+.profile-text p:last-child { margin: 0; }
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 2px 0 16px;
 }
 
-a:hover{
-text-decoration:underline;
+/* ── Research interests pills ───────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+.tag {
+  background: var(--navy-light);
+  color: var(--navy);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
-nav{
-margin-bottom:30px;
+/* ── Sections ───────────────────────────────── */
+.section { margin-top: var(--section-gap); }
+
+/* ── Publication list ───────────────────────── */
+.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub-list li {
+  padding: 14px 16px;
+  border-left: 3px solid var(--border);
+  margin-bottom: 14px;
+  background: #fafbfd;
+  border-radius: 0 4px 4px 0;
+  transition: border-color 0.15s;
+}
+.pub-list li:hover { border-left-color: var(--navy); }
+.pub-status {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.status-submitted { background: #fff3cd; color: #856404; }
+.status-prep      { background: #d1ecf1; color: #0c5460; }
+.status-progress  { background: #e2e3e5; color: #383d41; }
+
+/* ── Talk list ──────────────────────────────── */
+.talk-list { list-style: none; padding: 0; margin: 0; }
+.talk-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.talk-list li:last-child { border-bottom: none; }
+.talk-date {
+  min-width: 72px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding-top: 2px;
+}
+.talk-badge {
+  font-size: 0.75rem;
+  background: #f0e6ff;
+  color: #5a2d82;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-left: 6px;
+  font-weight: 600;
 }
 
-nav a{
-margin-right:20px;
-font-weight:600;
+/* ── Teaching table ─────────────────────────── */
+.teaching-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.teaching-table th {
+  text-align: left;
+  background: var(--navy-light);
+  color: var(--navy);
+  font-weight: 600;
+  padding: 7px 10px;
+  border-bottom: 2px solid var(--navy);
 }
+.teaching-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+.teaching-table tr:last-child td { border-bottom: none; }
+.teaching-table tr:hover td { background: #f5f8ff; }
 
-header{
-margin-bottom:40px;
+/* ── Education timeline ─────────────────────── */
+.edu-list { list-style: none; padding: 0; }
+.edu-list li {
+  position: relative;
+  padding: 0 0 22px 22px;
+  border-left: 2px solid var(--border);
 }
-
-.profile{
-display:flex;
-gap:30px;
-align-items:center;
+.edu-list li::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 4px;
+  width: 10px; height: 10px;
+  background: var(--navy);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--navy);
 }
+.edu-list li:last-child { border-left-color: transparent; }
+.edu-degree { font-weight: 600; }
+.edu-year { font-size: 0.85rem; color: var(--muted); margin-left: 8px; }
+.edu-inst { color: var(--muted); font-size: 0.93rem; }
 
-.profile img{
-width:160px;
-border-radius:6px;
+/* ── Contact card ───────────────────────────── */
+.contact-card {
+  background: var(--navy-light);
+  border-radius: 6px;
+  padding: 20px 24px;
+  display: inline-block;
+  min-width: 280px;
 }
+.contact-card p { margin: 0 0 6px; }
+.contact-card p:last-child { margin: 0; }
 
-.section{
-margin-top:40px;
+/* ── Footer ─────────────────────────────────── */
+footer {
+  margin-top: 60px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
+footer a { color: var(--muted); }
+footer a:hover { color: var(--navy); }
 
-ul{
-padding-left:20px;
-}
-
-footer{
-margin-top:60px;
-font-size:14px;
-color:#666;
-}
-
-.cv-button{
-display:inline-block;
-padding:8px 14px;
-border:1px solid #1a4b8c;
-border-radius:4px;
-margin-left:10px;
-}
-
-.cv-button:hover{
-background:#1a4b8c;
-color:white;
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 600px) {
+  body { padding: 24px 18px 40px; }
+  .profile { flex-direction: column; align-items: center; text-align: center; }
+  .profile img { width: 130px; }
+  .cv-button { margin-left: 0; }
+  nav { justify-content: center; }
+  nav a { margin-right: 14px; }
+  footer { flex-direction: column; align-items: center; text-align: center; }
 }
 
 </style>
@@ -93,257 +250,246 @@ color:white;
 <body>
 
 <header>
+  <h1>Benjamin Atawiah</h1>
+  <p class="subtitle">
+    PhD Candidate in Mathematics &nbsp;·&nbsp;
+    <a href="https://www.ua.edu/">The University of Alabama</a>
+  </p>
 
-<h1>Benjamin Atawiah</h1>
+  <nav>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#talks">Talks</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+    <a class="cv-button" href="files/Benjamin atawiah CV.pdf">CV ↓</a>
+  </nav>
 
-<p>
-PhD Candidate in Mathematics<br>
-<a href="https://www.ua.edu/">The University of Alabama</a>
-</p>
-
-<nav>
-<a href="#research">Research</a>
-<a href="#publications">Publications</a>
-<a href="#teaching">Teaching</a>
-<a href="#talks">Talks</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
-<a class="cv-button" href="files/Benjamin atawiah CV.pdf">CV</a>
-</nav>
-
-<div class="profile">
-
-<img src="images/My_photo.jpg">
-
-<div>
-
-<p>
-My research focuses on numerical methods for partial differential equations, particularly 
-<strong>discontinuous Galerkin finite element methods (DG-FEM)</strong> and high-order 
-<strong>time integration methods</strong>.
-</p>
-
-<p>
-I study stability and error analysis of Runge–Kutta discontinuous Galerkin methods, 
-Fourier analysis of filtered DG schemes, and efficient time-stepping algorithms 
-for high-order PDE discretizations.
-</p>
-
-<p>
-Email: <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
-</p>
-
-</div>
-
-</div>
-
+  <div class="profile">
+    <img src="images/My_photo.jpg" alt="Benjamin Atawiah">
+    <div class="profile-text">
+      <p>
+        I am a PhD candidate in Mathematics at the University of Alabama, advised by
+        <a href="#">Dr. Zheng Sun</a>. My research focuses on
+        <strong>numerical methods for partial differential equations</strong>, with emphasis
+        on <strong>discontinuous Galerkin finite element methods</strong> and
+        <strong>high-order time integration</strong>.
+      </p>
+      <p>
+        I study stability and error analysis of Runge–Kutta DG methods,
+        Fourier analysis of filtered DG schemes, and efficient time-stepping algorithms
+        for high-order PDE discretizations.
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
+      </p>
+      <div class="tags">
+        <span class="tag">Discontinuous Galerkin Methods</span>
+        <span class="tag">Runge–Kutta Methods</span>
+        <span class="tag">Stability Analysis</span>
+        <span class="tag">High-Order PDEs</span>
+        <span class="tag">Fourier Analysis</span>
+      </div>
+    </div>
+  </div>
 </header>
 
 
 <section id="research" class="section">
-
-<h2>Research</h2>
-
-<p>
-My research is in <strong>numerical analysis for partial differential equations</strong>, 
-with a focus on high-order discretization methods and time integration schemes. 
-In particular, I study discontinuous Galerkin methods for time-dependent PDEs and 
-their stability and accuracy properties.
-</p>
-
-<p>
-Current research topics include:
-</p>
-
-<ul>
-<li>Stability analysis of Runge–Kutta discontinuous Galerkin methods</li>
-<li>Energy-based error estimates for high-order DG schemes</li>
-<li>Fourier analysis of filtered DG methods</li>
-<li>Local time stepping and CFL optimization for DG discretizations</li>
-<li>Exponential time differencing methods for dispersive equations</li>
-</ul>
-
+  <h2>Research</h2>
+  <p>
+    My work lies at the intersection of <strong>numerical analysis</strong> and
+    <strong>scientific computing</strong>, with a focus on high-order discretization
+    and time integration for time-dependent PDEs. I am particularly interested in
+    rigorous mathematical analysis — stability, accuracy, and convergence — of DG-based schemes.
+  </p>
+  <p>Current research topics:</p>
+  <ul>
+    <li>Stability analysis of Runge–Kutta discontinuous Galerkin methods</li>
+    <li>Energy-based error estimates for high-order DG schemes</li>
+    <li>Fourier analysis of filtered DG methods</li>
+    <li>Local time stepping and CFL optimization for DG discretizations</li>
+    <li>Exponential time differencing methods for dispersive equations</li>
+    <li>Local discontinuous Galerkin methods with compact stencils</li>
+  </ul>
 </section>
-
 
 
 <section id="publications" class="section">
+  <h2>Publications &amp; Preprints</h2>
+  <ul class="pub-list">
 
-<h2>Publications</h2>
+    <li>
+      B. Atawiah and Z. Sun.
+      <em>Stability and accuracy effects of filtering on Runge–Kutta discontinuous Galerkin methods:
+      Fourier analysis for the second-order case.</em>
+      <span class="pub-status status-submitted">Submitted</span>
+    </li>
 
-<ul>
+    <li>
+      B. Atawiah and Z. Sun.
+      <em>Energy-based stability and error estimates of stage-dependent Runge–Kutta discontinuous
+      Galerkin methods.</em>
+      <span class="pub-status status-prep">In Preparation</span>
+    </li>
 
-<li>
-B. Atawiah and Z. Sun.  
-<i>Stability and accuracy effects of filtering on Runge–Kutta discontinuous Galerkin methods: Fourier analysis for the second-order case.</i>  
-Submitted for journal publication.
-</li>
+    <li>
+      B. Atawiah and Z. Sun.
+      <em>Stability analysis of exponential time differencing with local discontinuous Galerkin
+      methods for dispersive equations.</em>
+      <span class="pub-status status-progress">In Progress</span>
+    </li>
 
-<br>
+    <li>
+      B. Atawiah and Z. Sun.
+      <em>Local discontinuous Galerkin methods with compact stencils.</em>
+      <span class="pub-status status-progress">In Progress</span>
+    </li>
 
-<li>
-B. Atawiah and Z. Sun.  
-<i>Energy-based stability and error estimates of stage-dependent Runge–Kutta discontinuous Galerkin methods.</i>  
-Manuscript in preparation.
-</li>
-
-<br>
-
-<li>
-B. Atawiah and Z. Sun.  
-<i>Stability analysis of exponential time differencing with local discontinuous Galerkin methods for dispersive equations.</i>  
-Work in progress.
-</li>
-
-<br>
-
-<li>
-B. Atawiah and Z. Sun.  
-<i>Local discontinuous Galerkin methods with compact stencils.</i>  
-Work in progress.
-</li>
-
-</ul>
-
+  </ul>
 </section>
-
 
 
 <section id="talks" class="section">
+  <h2>Talks &amp; Conferences</h2>
+  <ul class="talk-list">
 
-<h2>Talks and Conferences</h2>
+    <li>
+      <span class="talk-date">Apr 2025</span>
+      <span>
+        Southeast Applied and Computational Mathematics Student Workshop —
+        Auburn University
+      </span>
+    </li>
 
-<ul>
+    <li>
+      <span class="talk-date">Mar 2025</span>
+      <span>
+        SIAM Southeastern Atlantic Section Conference —
+        University of Tennessee Knoxville
+      </span>
+    </li>
 
-<li>
-SIAM Southeastern Atlantic Section Conference,  
-University of Tennessee Knoxville, March 2025.
-</li>
+    <li>
+      <span class="talk-date">May 2025</span>
+      <span>
+        Joint Alabama–Florida Conference on Differential Equations
+        <span class="talk-badge">Poster</span>
+      </span>
+    </li>
 
-<li>
-Southeast Applied and Computational Mathematics Student Workshop,  
-Auburn University, April 2025.
-</li>
+    <li>
+      <span class="talk-date">Jan 2025</span>
+      <span>
+        IMSI Winter School on Reduced-Order Modeling —
+        University of Chicago
+      </span>
+    </li>
 
-<li>
-Joint Alabama–Florida Conference on Differential Equations,  
-May 2025 (Poster).
-</li>
-
-<li>
-IMSI Winter School on Reduced-Order Modeling,  
-University of Chicago, January 2025.
-</li>
-
-</ul>
-
+  </ul>
 </section>
-
 
 
 <section id="teaching" class="section">
+  <h2>Teaching</h2>
 
-<h2>Teaching</h2>
+  <h3>Instructor of Record — The University of Alabama</h3>
+  <table class="teaching-table">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Title</th>
+        <th>Term(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>MATH 238</td><td>Applied Differential Equations I</td><td>2024–2025</td></tr>
+      <tr><td>MATH 126</td><td>Calculus II</td><td>2024</td></tr>
+      <tr><td>MATH 227</td><td>Calculus III</td><td>2023</td></tr>
+      <tr><td>MATH 125</td><td>Calculus I</td><td>2023</td></tr>
+      <tr><td>MATH 115</td><td>Algebra and Trigonometry</td><td>2022</td></tr>
+    </tbody>
+  </table>
 
-<h3>Instructor of Record — The University of Alabama</h3>
-
-<ul>
-
-<li>MATH 238 — Applied Differential Equations I (2024–2025)</li>
-<li>MATH 126 — Calculus II (2024)</li>
-<li>MATH 227 — Calculus III (2023)</li>
-<li>MATH 125 — Calculus I (2023)</li>
-<li>MATH 115 — Algebra and Trigonometry (2022)</li>
-
-</ul>
-
-
-<h3>Teaching Assistant — University of Ghana</h3>
-
-<ul>
-<li>Vectors and Geometry</li>
-<li>Calculus I</li>
-</ul>
-
+  <h3>Teaching Assistant — University of Ghana</h3>
+  <table class="teaching-table">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Term(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Vectors and Geometry</td><td>—</td></tr>
+      <tr><td>Calculus I</td><td>—</td></tr>
+    </tbody>
+  </table>
 </section>
-
 
 
 <section id="education" class="section">
+  <h2>Education</h2>
+  <ul class="edu-list">
 
-<h2>Education</h2>
+    <li>
+      <span class="edu-degree">Ph.D. in Mathematics</span>
+      <span class="edu-year">Expected 2026</span>
+      <div class="edu-inst">
+        The University of Alabama<br>
+        Advisor: <a href="#">Dr. Zheng Sun</a>
+      </div>
+    </li>
 
-<ul>
+    <li>
+      <span class="edu-degree">M.A. in Mathematics</span>
+      <span class="edu-year">2025</span>
+      <div class="edu-inst">The University of Alabama</div>
+    </li>
 
-<li>
-Ph.D. in Mathematics, Expected 2026  
-<br>
-The University of Alabama  
-<br>
-Advisor: Dr. Zheng Sun
-</li>
+    <li>
+      <span class="edu-degree">M.Sc. in Mathematical Sciences</span>
+      <span class="edu-year">2020</span>
+      <div class="edu-inst">African Institute for Mathematical Sciences (AIMS), Ghana</div>
+    </li>
 
-<br>
+    <li>
+      <span class="edu-degree">B.A. in Economics and Mathematics</span>
+      <span class="edu-year">2018</span>
+      <div class="edu-inst">University of Ghana</div>
+    </li>
 
-<li>
-M.A. in Mathematics, 2025  
-<br>
-The University of Alabama
-</li>
-
-<br>
-
-<li>
-M.Sc. Mathematical Sciences, 2020  
-<br>
-African Institute for Mathematical Sciences (AIMS), Ghana
-</li>
-
-<br>
-
-<li>
-B.A. Economics and Mathematics, 2018  
-<br>
-University of Ghana
-</li>
-
-</ul>
-
+  </ul>
 </section>
 
 
-
 <section id="contact" class="section">
-
-<h2>Contact</h2>
-
-<p>
-
-Benjamin Atawiah  
-<br>
-Department of Mathematics  
-<br>
-The University of Alabama  
-<br>
-Tuscaloosa, AL
-
-</p>
-
-<p>
-Email: <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
-</p>
-
+  <h2>Contact</h2>
+  <div class="contact-card">
+    <p><strong>Benjamin Atawiah</strong></p>
+    <p>
+      Department of Mathematics<br>
+      The University of Alabama<br>
+      Tuscaloosa, AL 35487
+    </p>
+    <p>
+      <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
+    </p>
+  </div>
 </section>
 
 
 <footer>
-
-<p>
-© 2026 Benjamin Atawiah
-</p>
-
+  <span>© 2026 Benjamin Atawiah</span>
+  <span>
+    <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
+    &nbsp;·&nbsp;
+    <a href="files/Benjamin atawiah CV.pdf">CV</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.ua.edu/">University of Alabama</a>
+  </span>
 </footer>
-
 
 </body>
 </html>

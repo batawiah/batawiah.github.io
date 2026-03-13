@@ -1,19 +1,15 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Benjamin Atawiah | Mathematics</title>
-
 
 <meta name="description" content="Benjamin Atawiah, PhD Candidate in Mathematics at The University of Alabama specializing in Numerical Analysis and Discontinuous Galerkin Methods.">
 
 <!-- Google Search Console Verification -->
- 
 <meta name="google-site-verification" content="FhM4wcgCWBN8_6lLabVfSgR46OM6E4PiyLCYQ2eM2G4" />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
@@ -22,12 +18,9 @@
 <meta property="og:description" content="PhD Candidate in Mathematics at The University of Alabama specializing in Numerical Analysis and Discontinuous Galerkin Methods.">
 <meta property="og:type" content="website">
 
-
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 
-
 <style>
-
 
 :root {
   --navy: #1a4b8c;
@@ -39,9 +32,7 @@
   --section-gap: 52px;
 }
 
-
 *, *::before, *::after { box-sizing: border-box; }
-
 
 body {
   font-family: "Source Sans 3", sans-serif;
@@ -53,17 +44,14 @@ body {
   background: var(--bg);
 }
 
-
 /* ── Typography ─────────────────────────────── */
 h1 { font-family: "Source Serif 4", serif; font-size: 2rem; margin: 0 0 4px; }
 h2 { font-family: "Source Serif 4", serif; font-size: 1.35rem; margin: 0 0 14px;
      padding-bottom: 6px; border-bottom: 2px solid var(--navy); color: var(--navy); }
 h3 { font-family: "Source Serif 4", serif; font-size: 1.05rem; margin: 22px 0 6px; color: #333; }
 
-
 a { color: var(--navy); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
 
 /* ── Navigation ─────────────────────────────── */
 nav {
@@ -86,7 +74,6 @@ nav a {
 nav a:hover { color: var(--navy); text-decoration: none; }
 nav a.active, nav a:focus { color: var(--navy); }
 
-
 .cv-button {
   display: inline-block;
   padding: 5px 14px;
@@ -99,7 +86,6 @@ nav a.active, nav a:focus { color: var(--navy); }
   transition: background 0.15s, color 0.15s;
 }
 .cv-button:hover { background: var(--navy); color: white !important; text-decoration: none; }
-
 
 /* ── Profile header ─────────────────────────── */
 .profile {
@@ -117,13 +103,11 @@ nav a.active, nav a:focus { color: var(--navy); }
 .profile-text p { margin: 0 0 10px; }
 .profile-text p:last-child { margin: 0; }
 
-
 .subtitle {
   font-size: 1rem;
   color: var(--muted);
   margin: 2px 0 16px;
 }
-
 
 /* ── Research interests pills ───────────────── */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
@@ -136,10 +120,57 @@ nav a.active, nav a:focus { color: var(--navy); }
   font-weight: 600;
 }
 
-
 /* ── Sections ───────────────────────────────── */
 .section { margin-top: var(--section-gap); }
 
+/* ── News section ───────────────────────────── */
+.news-list { list-style: none; padding: 0; margin: 0; }
+.news-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.news-list li:last-child { border-bottom: none; }
+.news-date {
+  min-width: 80px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding-top: 3px;
+  white-space: nowrap;
+}
+.news-badge {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 7px;
+  vertical-align: middle;
+}
+.badge-talk   { background: #d4edda; color: #155724; }
+.badge-paper  { background: #fff3cd; color: #856404; }
+.badge-award  { background: #f0e6ff; color: #5a2d82; }
+.badge-upcoming { background: #cfe2ff; color: #084298; }
+
+/* ── Skills grid ────────────────────────────── */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.skill-item {
+  background: var(--navy-light);
+  color: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
 
 /* ── Publication list ───────────────────────── */
 .pub-list { list-style: none; padding: 0; margin: 0; }
@@ -164,7 +195,6 @@ nav a.active, nav a:focus { color: var(--navy); }
 .status-submitted { background: #fff3cd; color: #856404; }
 .status-prep      { background: #d1ecf1; color: #0c5460; }
 .status-progress  { background: #e2e3e5; color: #383d41; }
-
 
 /* ── Talk list ──────────────────────────────── */
 .talk-list { list-style: none; padding: 0; margin: 0; }
@@ -192,7 +222,24 @@ nav a.active, nav a:focus { color: var(--navy); }
   margin-left: 6px;
   font-weight: 600;
 }
-
+.talk-badge-oral {
+  font-size: 0.75rem;
+  background: #d4edda;
+  color: #155724;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+.talk-badge-upcoming {
+  font-size: 0.75rem;
+  background: #cfe2ff;
+  color: #084298;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-left: 6px;
+  font-weight: 600;
+}
 
 /* ── Teaching table ─────────────────────────── */
 .teaching-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
@@ -207,7 +254,6 @@ nav a.active, nav a:focus { color: var(--navy); }
 .teaching-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
 .teaching-table tr:last-child td { border-bottom: none; }
 .teaching-table tr:hover td { background: #f5f8ff; }
-
 
 /* ── Education timeline ─────────────────────── */
 .edu-list { list-style: none; padding: 0; }
@@ -231,7 +277,6 @@ nav a.active, nav a:focus { color: var(--navy); }
 .edu-year { font-size: 0.85rem; color: var(--muted); margin-left: 8px; }
 .edu-inst { color: var(--muted); font-size: 0.93rem; }
 
-
 /* ── Contact card ───────────────────────────── */
 .contact-card {
   background: var(--navy-light);
@@ -242,7 +287,6 @@ nav a.active, nav a:focus { color: var(--navy); }
 }
 .contact-card p { margin: 0 0 6px; }
 .contact-card p:last-child { margin: 0; }
-
 
 /* ── Footer ─────────────────────────────────── */
 footer {
@@ -260,7 +304,6 @@ footer {
 footer a { color: var(--muted); }
 footer a:hover { color: var(--navy); }
 
-
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 600px) {
   body { padding: 24px 18px 40px; }
@@ -272,32 +315,29 @@ footer a:hover { color: var(--navy); }
   footer { flex-direction: column; align-items: center; text-align: center; }
 }
 
-
 </style>
 </head>
 
-
 <body>
-
 
 <header>
   <h1>Benjamin Atawiah</h1>
   <p class="subtitle">
-    PhD Candidate in Mathematics &nbsp;·&nbsp;
+    PhD Candidate in Mathematics &nbsp;&middot;&nbsp;
     <a href="https://www.ua.edu/">The University of Alabama</a>
   </p>
 
-
   <nav>
+    <a href="#news">News</a>
     <a href="#research">Research</a>
     <a href="#publications">Publications</a>
+    <a href="#skills">Skills</a>
     <a href="#teaching">Teaching</a>
     <a href="#talks">Talks</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
-    <a class="cv-button" href="files/Benjamin atawiah CV.pdf">CV ↓</a>
+    <a class="cv-button" href="files/Benjamin atawiah CV.pdf">CV &darr;</a>
   </nav>
-
 
   <div class="profile">
     <img src="images/My_photo.jpg" alt="Benjamin Atawiah">
@@ -310,7 +350,7 @@ footer a:hover { color: var(--navy); }
         <strong>high-order time integration</strong>.
       </p>
       <p>
-        I study stability and error analysis of Runge–Kutta DG methods,
+        I study stability and error analysis of Runge&ndash;Kutta DG methods,
         Fourier analysis of filtered DG schemes, and efficient time-stepping algorithms
         for high-order PDE discretizations.
       </p>
@@ -320,7 +360,7 @@ footer a:hover { color: var(--navy); }
       </p>
       <div class="tags">
         <span class="tag">Discontinuous Galerkin Methods</span>
-        <span class="tag">Runge–Kutta Methods</span>
+        <span class="tag">Runge&ndash;Kutta Methods</span>
         <span class="tag">Stability Analysis</span>
         <span class="tag">High-Order PDEs</span>
         <span class="tag">Fourier Analysis</span>
@@ -330,18 +370,84 @@ footer a:hover { color: var(--navy); }
 </header>
 
 
+<!-- ══════════════════════════════════════════ NEWS ══ -->
+<section id="news" class="section">
+  <h2>News</h2>
+  <ul class="news-list">
 
+    <li>
+      <span class="news-date">Mar 2026</span>
+      <span>
+        Presenting at the
+        <strong>AMS Spring Southeastern Sectional Meeting</strong>,
+        Georgia Southern University&ndash;Armstrong Campus, Savannah, GA (Mar. 28&ndash;29, 2026).
+        Talk:
+        <a href="https://meetings.ams.org/math/spring2026se/meetingapp.cgi/Paper/60291"
+           target="_blank" rel="noopener">
+          <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin
+          methods: Fourier analysis for the second-order case</em></a>.
+        <span class="news-badge badge-upcoming">Upcoming</span>
+        <span class="news-badge badge-talk">Oral</span>
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">May 2025</span>
+      <span>
+        Presented a poster at the
+        <strong>Third Joint Alabama&ndash;Florida Conference on Differential Equations,
+        Dynamical Systems, and Applications</strong>,
+        University of Alabama at Birmingham.
+        <span class="news-badge badge-talk">Poster</span>
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Apr 2025</span>
+      <span>
+        Gave an oral talk at the
+        <strong>Southeast Applied and Computational Mathematics Student Workshop</strong>,
+        Auburn University.
+        <span class="news-badge badge-talk">Oral</span>
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Mar 2025</span>
+      <span>
+        Gave an oral talk at the
+        <strong>SIAM Southeastern Atlantic Section Conference</strong>,
+        University of Tennessee, Knoxville.
+        <span class="news-badge badge-talk">Oral</span>
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2025</span>
+      <span>
+        Paper <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous
+        Galerkin methods: Fourier analysis for the second-order case</em>
+        submitted for publication.
+        <span class="news-badge badge-paper">Submitted</span>
+      </span>
+    </li>
+
+  </ul>
+</section>
+
+
+<!-- ══════════════════════════════════════════ RESEARCH ══ -->
 <section id="research" class="section">
   <h2>Research</h2>
   <p>
     My work lies at the intersection of <strong>numerical analysis</strong> and
     <strong>scientific computing</strong>, with a focus on high-order discretization
     and time integration for time-dependent PDEs. I am particularly interested in
-    rigorous mathematical analysis — stability, accuracy, and convergence — of DG-based schemes.
+    rigorous mathematical analysis &mdash; stability, accuracy, and convergence &mdash; of DG-based schemes.
   </p>
   <p>Current research topics:</p>
   <ul>
-    <li>Stability analysis of Runge–Kutta discontinuous Galerkin methods</li>
+    <li>Stability analysis of Runge&ndash;Kutta discontinuous Galerkin methods</li>
     <li>Energy-based error estimates for high-order DG schemes</li>
     <li>Fourier analysis of filtered DG methods</li>
     <li>Local time stepping and CFL optimization for DG discretizations</li>
@@ -351,27 +457,29 @@ footer a:hover { color: var(--navy); }
 </section>
 
 
-
+<!-- ══════════════════════════════════════════ PUBLICATIONS ══ -->
 <section id="publications" class="section">
   <h2>Publications &amp; Preprints</h2>
   <ul class="pub-list">
 
-
     <li>
       B. Atawiah and Z. Sun.
-      <em>Stability and accuracy effects of filtering on Runge–Kutta discontinuous Galerkin methods:
+      <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin methods:
       Fourier analysis for the second-order case.</em>
       <span class="pub-status status-submitted">Submitted</span>
     </li>
 
-
     <li>
       B. Atawiah and Z. Sun.
-      <em>Energy-based stability and error estimates of stage-dependent Runge–Kutta discontinuous
+      <em>Energy-based stability and error estimates of stage-dependent Runge&ndash;Kutta discontinuous
       Galerkin methods.</em>
       <span class="pub-status status-prep">In Preparation</span>
     </li>
 
+  </ul>
+
+  <h3>Work in Progress</h3>
+  <ul class="pub-list">
 
     <li>
       B. Atawiah and Z. Sun.
@@ -380,70 +488,107 @@ footer a:hover { color: var(--navy); }
       <span class="pub-status status-progress">In Progress</span>
     </li>
 
-
     <li>
       B. Atawiah and Z. Sun.
       <em>Local discontinuous Galerkin methods with compact stencils.</em>
       <span class="pub-status status-progress">In Progress</span>
     </li>
 
-
   </ul>
 </section>
 
 
+<!-- ══════════════════════════════════════════ SKILLS ══ -->
+<section id="skills" class="section">
+  <h2>Skills &amp; Software</h2>
+  <p>I use the following tools for numerical simulation, analysis, and scientific computing:</p>
+  <div class="skills-grid">
+    <span class="skill-item">MATLAB</span>
+    <span class="skill-item">Mathematica</span>
+    <span class="skill-item">Julia</span>
+    <span class="skill-item">LaTeX</span>
+    <span class="skill-item">Python</span>
+    <span class="skill-item">Stata</span>
+    <span class="skill-item">Firedrake</span>
+    <span class="skill-item">Git / GitHub</span>
+  </div>
+</section>
 
+
+<!-- ══════════════════════════════════════════ TALKS ══ -->
 <section id="talks" class="section">
   <h2>Talks &amp; Conferences</h2>
   <ul class="talk-list">
 
-
     <li>
-      <span class="talk-date">Apr 2025</span>
+      <span class="talk-date">Mar 2026</span>
       <span>
-        Southeast Applied and Computational Mathematics Student Workshop —
-        Auburn University
+        <a href="https://meetings.ams.org/math/spring2026se/meetingapp.cgi/Paper/60291"
+           target="_blank" rel="noopener">
+          <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin
+          methods: Fourier analysis for the second-order case</em></a> &mdash;
+        AMS Spring Southeastern Sectional Meeting,
+        Georgia Southern University&ndash;Armstrong Campus, Savannah, GA
+        <span class="talk-badge-upcoming">Upcoming</span>
+        <span class="talk-badge-oral">Oral</span>
       </span>
     </li>
-
-
-    <li>
-      <span class="talk-date">Mar 2025</span>
-      <span>
-        SIAM Southeastern Atlantic Section Conference —
-        University of Tennessee Knoxville
-      </span>
-    </li>
-
 
     <li>
       <span class="talk-date">May 2025</span>
       <span>
-        Joint Alabama–Florida Conference on Differential Equations
+        Third Joint Alabama&ndash;Florida Conference on Differential Equations,
+        Dynamical Systems, and Applications &mdash;
+        University of Alabama at Birmingham
         <span class="talk-badge">Poster</span>
       </span>
     </li>
 
+    <li>
+      <span class="talk-date">Apr 2025</span>
+      <span>
+        Southeast Applied and Computational Mathematics Student Workshop &mdash;
+        Auburn University
+        <span class="talk-badge-oral">Oral</span>
+      </span>
+    </li>
+
+    <li>
+      <span class="talk-date">Mar 2025</span>
+      <span>
+        SIAM Southeastern Atlantic Section Conference &mdash;
+        University of Tennessee, Knoxville
+        <span class="talk-badge-oral">Oral</span>
+      </span>
+    </li>
 
     <li>
       <span class="talk-date">Jan 2025</span>
       <span>
-        IMSI Winter School on Reduced-Order Modeling —
+        IMSI Winter School on Reduced-Order Modeling &mdash;
         University of Chicago
+        <span class="talk-badge">Attendance</span>
       </span>
     </li>
 
+    <li>
+      <span class="talk-date">Dec 2024</span>
+      <span>
+        IMSI Mathematical Modeling of Biological Interfacial Phenomena &mdash;
+        University of Chicago (online)
+        <span class="talk-badge">Online Attendance</span>
+      </span>
+    </li>
 
   </ul>
 </section>
 
 
-
+<!-- ══════════════════════════════════════════ TEACHING ══ -->
 <section id="teaching" class="section">
   <h2>Teaching</h2>
 
-
-  <h3>Instructor of Record — The University of Alabama</h3>
+  <h3>Instructor of Record &mdash; The University of Alabama</h3>
   <table class="teaching-table">
     <thead>
       <tr>
@@ -453,16 +598,15 @@ footer a:hover { color: var(--navy); }
       </tr>
     </thead>
     <tbody>
-      <tr><td>MATH 238</td><td>Applied Differential Equations I</td><td>Spring 2024–Present</td></tr>
-      <tr><td>MATH 126</td><td>Calculus II</td><td>Fall, 2024</td></tr>
-      <tr><td>MATH 227</td><td>Calculus III</td><td>Fall, 2023</td></tr>
-      <tr><td>MATH 125</td><td>Calculus I</td><td>Spring, 2023</td></tr>
-      <tr><td>MATH 115</td><td>Algebra and Trigonometry</td><td>Fall, 2022</td></tr>
+      <tr><td>MATH 238</td><td>Applied Differential Equations I</td><td>Spring 2024&ndash;Present</td></tr>
+      <tr><td>MATH 126</td><td>Calculus II</td><td>Fall 2024</td></tr>
+      <tr><td>MATH 227</td><td>Calculus III</td><td>Fall 2023</td></tr>
+      <tr><td>MATH 125</td><td>Calculus I</td><td>Spring 2023</td></tr>
+      <tr><td>MATH 115</td><td>Algebra and Trigonometry</td><td>Fall 2022</td></tr>
     </tbody>
   </table>
 
-
-  <h3>Teaching Assistant — University of Ghana</h3>
+  <h3>Teaching Assistant &mdash; University of Ghana</h3>
   <table class="teaching-table">
     <thead>
       <tr>
@@ -478,11 +622,10 @@ footer a:hover { color: var(--navy); }
 </section>
 
 
-
+<!-- ══════════════════════════════════════════ EDUCATION ══ -->
 <section id="education" class="section">
   <h2>Education</h2>
   <ul class="edu-list">
-
 
     <li>
       <span class="edu-degree">Ph.D. in Mathematics</span>
@@ -493,13 +636,11 @@ footer a:hover { color: var(--navy); }
       </div>
     </li>
 
-
     <li>
       <span class="edu-degree">M.A. in Mathematics</span>
       <span class="edu-year">2025</span>
       <div class="edu-inst">The University of Alabama</div>
     </li>
-
 
     <li>
       <span class="edu-degree">M.Sc. in Mathematical Sciences</span>
@@ -507,19 +648,17 @@ footer a:hover { color: var(--navy); }
       <div class="edu-inst">African Institute for Mathematical Sciences (AIMS), Ghana</div>
     </li>
 
-
     <li>
       <span class="edu-degree">B.A. in Economics and Mathematics</span>
       <span class="edu-year">2018</span>
       <div class="edu-inst">University of Ghana</div>
     </li>
 
-
   </ul>
 </section>
 
 
-
+<!-- ══════════════════════════════════════════ CONTACT ══ -->
 <section id="contact" class="section">
   <h2>Contact</h2>
   <div class="contact-card">
@@ -536,18 +675,16 @@ footer a:hover { color: var(--navy); }
 </section>
 
 
-
 <footer>
-  <span>© 2026 Benjamin Atawiah</span>
+  <span>&copy; 2026 Benjamin Atawiah</span>
   <span>
     <a href="mailto:batawiah@crimson.ua.edu">batawiah@crimson.ua.edu</a>
-    &nbsp;·&nbsp;
+    &nbsp;&middot;&nbsp;
     <a href="files/Benjamin atawiah CV.pdf">CV</a>
-    &nbsp;·&nbsp;
+    &nbsp;&middot;&nbsp;
     <a href="https://www.ua.edu/">University of Alabama</a>
   </span>
 </footer>
-
 
 </body>
 </html>

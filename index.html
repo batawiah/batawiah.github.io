@@ -193,6 +193,7 @@ nav a.active, nav a:focus { color: var(--navy); }
   vertical-align: middle;
 }
 .status-submitted { background: #fff3cd; color: #856404; }
+.status-accepted  { background: #d4edda; color: #155724; }
 .status-prep      { background: #d1ecf1; color: #0c5460; }
 .status-progress  { background: #e2e3e5; color: #383d41; }
 
@@ -375,14 +376,13 @@ footer a:hover { color: var(--navy); }
   <h2>News</h2>
   <ul class="news-list">
 
-     <li class="news-item">
-      <span class="news-date">Jul 2026</span>
+    <li class="news-item">
+      <span class="news-date">Aug 2026</span>
       <span class="news-body">
-        <strong>Invited presentation</strong> at the <strong>2026 SIAM Annual Meeting (AN26)</strong>, Cleveland, Ohio &mdash;
-        minisymposium: <a href="https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=89076" target="_blank" rel="noopener"><em>Advanced Time Integration Methods and Multiphysics Applications</em></a>.
-        Talk: <a href="https://meetings.siam.org/sess/dsp_talk.cfm?p=159053" target="_blank" rel="noopener"><em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin methods: Fourier analysis for the second-order case</em></a>.
-        <span class="badge badge-invited">Invited</span>
-        <span class="badge badge-talk">Oral</span>
+        Paper <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin methods:
+        Fourier analysis for the second-order case</em> accepted for publication in
+        <strong>Journal of Scientific Computing</strong>.
+        <span class="news-badge badge-paper">Paper</span>
       </span>
     </li>
 </ul>
@@ -419,7 +419,7 @@ footer a:hover { color: var(--navy); }
       B. Atawiah and Z. Sun.
       <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin methods:
       Fourier analysis for the second-order case.</em>
-      <span class="pub-status status-submitted">Journal of Scientific Computing, to appear. </span>
+      <span class="pub-status status-accepted">Journal of Scientific Computing, accepted.</span>
     </li>
 
      
@@ -438,7 +438,6 @@ footer a:hover { color: var(--navy); }
     <span class="skill-item">MATLAB</span>
     <span class="skill-item">Mathematica</span>
     <span class="skill-item">Julia</span>
-    <span class="skill-item"></span>
     <span class="skill-item">Python</span>
     <span class="skill-item">Stata</span>
     <span class="skill-item">Firedrake</span>
@@ -453,6 +452,22 @@ footer a:hover { color: var(--navy); }
   <ul class="talk-list">
 
     <li>
+      <span class="talk-date">Jul 2026</span>
+      <span>
+        <a href="https://meetings.siam.org/sess/dsp_talk.cfm?p=159053"
+           target="_blank" rel="noopener">
+          <em>Stability and accuracy effects of filtering on Runge&ndash;Kutta discontinuous Galerkin
+          methods: Fourier analysis for the second-order case</em></a> &mdash;
+        2026 SIAM Annual Meeting (AN26), minisymposium on
+        <a href="https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=89076"
+           target="_blank" rel="noopener">Advanced Time Integration Methods and Multiphysics Applications</a>,
+        Cleveland, OH
+        <span class="talk-badge">Invited</span>
+        <span class="talk-badge-oral">Oral</span>
+      </span>
+    </li>
+
+    <li>
       <span class="talk-date">Mar 2026</span>
       <span>
         <a href="https://meetings.ams.org/math/spring2026se/meetingapp.cgi/Paper/60291"
@@ -461,7 +476,6 @@ footer a:hover { color: var(--navy); }
           methods: Fourier analysis for the second-order case</em></a> &mdash;
         AMS Spring Southeastern Sectional Meeting,
         Georgia Southern University&ndash;Armstrong Campus, Savannah, GA
-        <span class="talk-badge-upcoming">Upcoming</span>
         <span class="talk-badge-oral">Oral</span>
       </span>
     </li>
